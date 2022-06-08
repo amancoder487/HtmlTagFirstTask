@@ -23,12 +23,14 @@
 
 
 import React from 'react'
+import Flexboxtask from './Flexboxtask'
 import Web from './Web'
 
 const App = () => {
   return (
     <div>
-      <Web/>
+      {/* <Web/> */}
+      <Flexboxtask/>
     </div>
   )
 }
