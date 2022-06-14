@@ -59,7 +59,7 @@ const Header = () => {
                         browser window to see how the
                         background image behaves.
                     </p>
->
+
                     <p >
                         You can specify background images
                         for any visible HTML element.
