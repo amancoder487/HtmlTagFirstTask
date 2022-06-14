@@ -23,6 +23,7 @@
 
 
 import React from 'react'
+import Gridtask from './Compoment/Gridtask'
 import Flexboxtask from './Flexboxtask'
 import Web from './Web'
 
@@ -30,7 +31,8 @@ const App = () => {
   return (
     <div>
       {/* <Web/> */}
-      <Flexboxtask/>
+      {/* <Flexboxtask/> */}
+      <Gridtask/>
     </div>
   )
 }
