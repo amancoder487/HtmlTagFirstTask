@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #name {
+            background-color: aquamarine;
+            padding: 18px;
+            margin: 12px;
+            width: 20vw;
+        }
+        
+        #age {
+            background-color: aquamarine;
+            padding: 18px;
+            margin: 12px;
+            width: 20vw;
+            margin-left: 30px;
+        }
+        
+        #dob {
+            background-color: aquamarine;
+            padding: 18px;
+            margin: 12px;
+            width: 20vw;
+            margin-left: 30px;
+        }
+        
+        #email {
+            background-color: aquamarine;
+            padding: 18px;
+            margin: 12px;
+            width: 20vw;
+        }
+        
+        .main {
+            display: flex;
+        }
+        
+        #maincss {
+            background-color: bisque;
+            display: flex;
+        }
+        
+        #fclass {
+            border: 2px solid black;
+        }
+        
+        table {
+            border: 2px solid black;
+            margin-top: 27px;
+            margin-left: 43px;
+        }
+        
+        table,
+        th,
+        td {
+            border: 1px solid;
+        }
+        
+        label {
+            font-size: 30px;
+        }
+        
+        #txdiv {
+            display: flex;
+            align-items: center;
+        }
+        
+        #tx {
+            width: 20vw;
+            padding: 18px;
+            margin: 12px;
+            background-color: aquamarine;
+        }
+        
+        #submit {
+            display: flex;
+            padding: 16px;
+            justify-content: center;
+        }
+        
+        button {
+            background-color: blueviolet;
+            padding: 19px;
+            color: brown;
+            font-size: 25px;
+        }
+        
+        #fclass {
+            width: 40%;
+        }
+        
+        #reset {
+            margin-left: 8px;
+        }
+        
+        .error {
+            color: brown;
+            margin-left: 3px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let arr_one = [];
+        let is_edit = -1;
+        //let count = 0;
+        
+
+        var div = document.createElement("div")
+        div.setAttribute("id", "maincss")
+
+
+        document.querySelector('body').appendChild(div);
+
+        var fdiv = document.createElement("div")
+        fdiv.setAttribute("id", 'fclass')
+        div.appendChild(fdiv)
+        var form = document.createElement("form");
+
+        fdiv.appendChild(form)
+
+
+
+
+        var label = document.createElement('label');
+        label.innerHTML = "Name"
+        form.appendChild(label)
+        
+        var span =document.createElement("span");
+        span.innerHTML="*"
+        span.style.color="red"
+        label.appendChild(span)
+
+        label.setAttribute("class", "label")
+        var FN = document.createElement("input");
+        var mybr = document.createElement('br');
+
+        FN.setAttribute("type", "text");
+        FN.setAttribute("placeholder", "FullName");
+        FN.setAttribute("id", "name");
+
+
+        form.appendChild(FN);
+        form.appendChild(mybr)
+
+        var fName = document.getElementById("name").value
+
+
+        var errorName = document.createElement("p")
+        errorName.innerHTML = "please Enter Name"
+        errorName.setAttribute("class", "error")
+        form.appendChild(errorName)
+
+
+
+
+        var label = document.createElement('label');
+        label.innerHTML = "Age"
+        form.appendChild(label)
+        
+        var span =document.createElement("span");
+        span.innerHTML="*"
+        span.style.color="red"
+        label.appendChild(span)
+        
+
+        var Ag = document.createElement("input")
+        var abr = document.createElement('br');
+        Ag.setAttribute("type", "number")
+        Ag.setAttribute("placeholder", "Age")
+        Ag.setAttribute("id", "age")
+        Ag.setAttribute("min" ,"2")
+        Ag.setAttribute("max","80")
+        form.appendChild(Ag)
+        form.appendChild(abr)
+
+
+
+        var errorAge = document.createElement("p")
+        errorAge.innerHTML = "please Enter Age"
+        errorAge.setAttribute("class", "error")
+        form.appendChild(errorAge)
+
+
+        
+
+
+
+        var label = document.createElement('label');
+        label.innerHTML = "Dob"
+        form.appendChild(label)
+        var span =document.createElement("span");
+        span.innerHTML="*"
+        span.style.color="red"
+        label.appendChild(span)
+        var DOB = document.createElement("input");
+        
+       
+       
+        var dbr = document.createElement('br');
+        
+
+        
+
+        DOB.setAttribute("type", "date");
+        DOB.setAttribute("name", "dob");
+        DOB.setAttribute("id", "dob")
+
+        DOB.setAttribute("placeholder", "DOB");
+        form.appendChild(DOB)
+       
+        form.appendChild(dbr)
+    
+        
+       
+    
+
+
+        var errorDob = document.createElement("p")
+        errorDob.innerHTML = "please Enter Birth date"
+        errorDob.setAttribute("class", "error")
+        form.appendChild(errorDob)
+
+
+
+
+
+        var rh = document.createElement("h1")
+        rh.innerHTML = "Select Gender"
+        form.appendChild(rh)
+        
+        var span =document.createElement("span");
+        span.innerHTML="*"
+        span.style.color="red"
+        rh.appendChild(span)
+
+
+        
+
+
+        
+        var label = document.createElement('label');
+        label.innerHTML = "Female"
+        form.appendChild(label)
+        var Femaleselect = document.createElement("input");
+
+
+        
+        
+        Femaleselect.setAttribute("type", "radio");
+        Femaleselect.setAttribute("value", "Femal")
+        Femaleselect.setAttribute("name", "gender")
+        Femaleselect.setAttribute("id", "gfemale")
+        form.appendChild(Femaleselect)
+
+
+        var label = document.createElement('label');
+        label.innerHTML = "Male"
+        form.appendChild(label)
+        var Maleselect = document.createElement("input");
+        var rbr = document.createElement("br");
+
+        Maleselect.setAttribute("type", "radio");
+        Maleselect.setAttribute("value", "Male")
+        Maleselect.setAttribute("name", "gender")
+        Maleselect.setAttribute("id", "gmale")
+
+        form.appendChild(Maleselect)
+        form.appendChild(rbr)
+
+
+        
+        var errorradio = document.createElement("p")
+        errorradio.innerHTML = "please select gender"
+        errorradio.setAttribute("class", "error")
+        form.appendChild(errorradio)
+
+
+
+        var ch = document.createElement("h1")
+        ch.innerHTML = "Select Hobby"
+        
+        var span =document.createElement("span");
+        span.innerHTML="*"
+        span.style.color="red"
+        ch.appendChild(span)
+
+        
+
+
+        form.appendChild(ch)
+        var label = document.createElement('label');
+        label.innerHTML = "Football"
+        form.appendChild(label)
+        let footballselect = document.createElement("input")
+
+
+        var fbr = document.createElement("br");
+
+        footballselect.setAttribute("type", "checkbox")
+        footballselect.setAttribute("value", "Football")
+        footballselect.setAttribute("id", "fb")
+       
+        form.appendChild(footballselect)
+        footballselect.style.marginLeft="12px"
+        form.appendChild(fbr)
+
+
+
+
+
+        var label = document.createElement('label');
+        label.innerHTML = "Cricket"
+        form.appendChild(label)
+        var Cricketselect = document.createElement("input")
+
+        var fbr = document.createElement("br");
+        Cricketselect.setAttribute("id", "ct")
+        Cricketselect.setAttribute("type", "checkbox")
+        Cricketselect.setAttribute("value", "Cricket")
+        form.appendChild(Cricketselect)
+        Cricketselect.style.marginLeft="24px"
+        form.appendChild(fbr)
+
+
+
+
+
+
+        var label = document.createElement('label');
+        label.innerHTML = "Chesss"
+        form.appendChild(label)
+        var Check = document.createElement("input")
+        var fbr = document.createElement("br");
+        Check.setAttribute("id", "chess")
+        Check.setAttribute("type", "checkbox")
+        Check.setAttribute("value", "Chess")
+
+        form.appendChild(Check)
+        Check.style.marginLeft="30px"
+        form.appendChild(fbr)
+
+
+        
+        
+        var   errorcheck = document.createElement("p")
+        errorcheck.innerHTML = "please select hobby"
+        errorcheck.setAttribute("class", "error")
+        form.appendChild(  errorcheck)
+      
+
+
+
+        var sdiv = document.createElement("div")
+        sdiv.setAttribute("id", "submit")
+        var s = document.createElement("button");
+        s.setAttribute("type", "button");
+        s.setAttribute("name", "Submit");
+        s.setAttribute("onsubmit", "onsubmit")
+        s.setAttribute("id", "btn")
+        s.innerText = 'submit';
+        sdiv.appendChild(s)
+
+
+
+        var reset = document.createElement("button");
+        reset.setAttribute("type", "reset");
+        reset.setAttribute("name", "reset");
+        reset.setAttribute("id", "reset")
+        reset.innerText = 'reset';
+        sdiv.appendChild(reset)
+        form.appendChild(sdiv)
+
+
+
+
+        function EditHander() {
+            console.log("this",this.id)
+
+            let targer_id = this.id.substr(this.id.indexOf('_') + 1)
+            console.log("targ",targer_id)
+            console.log("list",arr_one)
+
+            document.getElementById("name").value = arr_one[targer_id].ename
+            document.getElementById("age").value = arr_one[targer_id].eage
+            document.getElementById("dob").value = arr_one[targer_id].eDob
+            if (arr_one[targer_id].eGender == "Male") {
+                document.getElementById("gmale").checked = true;
+            } else if (arr_one[targer_id].eGender == "Female") {
+                document.getElementById("gfemale").checked = true;
+            }
+            console.log(arr_one[targer_id].ehobby);
+            arr_one[targer_id].ehobby.forEach((v, i) => {
+                if (v == "Football") {
+                    document.getElementById("fb").checked = true
+                }
+                if (v == "Cricket") {
+                    document.getElementById("ct").checked = true
+                }
+                if (v == "Chess") {
+                    document.getElementById("chess").checked = true
+                }
+
+            });
+            is_edit = targer_id
+
+        }
+
+
+        function createrow() {
+
+            var count=0; 
+            document.querySelector('tbody').remove();
+            document.querySelector('table').appendChild(document.createElement('tbody'));
+            
+            arr_one.forEach((p) => {
+
+
+
+                let row_2 = document.createElement('tr');
+
+                let row_2_data_1 = document.createElement('td');
+                row_2_data_1.innerHTML = count +1;
+                let row_2_data_2 = document.createElement('td');
+                row_2_data_2.innerHTML = p.ename;
+                let row_2_data_3 = document.createElement('td');
+                row_2_data_3.innerHTML = p.eage;
+                let row_2_data_4 = document.createElement('td');
+                row_2_data_4.innerHTML = p.eDob;
+                let row_2_data_5 = document.createElement('td');
+
+
+                row_2_data_5.innerHTML = p.eGender;
+
+
+                let row_2_data_6 = document.createElement('td');
+                row_2_data_6.innerHTML = p.ehobby.join(",")
+                console.log(p.ehobby.join(","))
+
+
+
+                let edit = document.createElement('button')
+                edit.innerText = "Edit"
+
+                edit.setAttribute("id", "edit_" + count)
+
+                edit.addEventListener("click", EditHander)
+
+
+
+
+                let row_2_data_7 = document.createElement('td')
+                row_2_data_7.appendChild(edit)
+
+
+
+
+                let Delet = document.createElement('button')
+
+                Delet.innerText = "Delete";
+
+                Delet.setAttribute("id", "delete_" + count);
+                
+
+                Delet.addEventListener("click", DeleteHander);
+
+                let row_2_data_8 = document.createElement('td');
+                row_2_data_8.appendChild(Delet)
+
+
+                row_2.appendChild(row_2_data_1);
+                row_2.appendChild(row_2_data_2);
+                row_2.appendChild(row_2_data_3);
+                row_2.appendChild(row_2_data_4)
+                row_2.appendChild(row_2_data_5)
+                row_2.appendChild(row_2_data_6)
+                row_2.appendChild(row_2_data_7)
+                row_2.appendChild(row_2_data_8)
+
+
+                document.querySelector('tbody').appendChild(row_2);
+
+
+
+                count += 1;
+
+            })
+
+        }
+
+
+        function DeleteHander() {
+
+
+            this.parentElement.parentElement.remove();
+            //row--;
+            //var i = this.parentNode.parentNode.rowIndex;
+
+           
+            let del_id = this.id.substr(this.id.indexOf('_') + 1)
+            //document.getElementById("mytable").deleteRow(0)
+            arr_one.splice(del_id,1)
+
+        
+            createrow()
+            
+        }
+
+
+
+       
+
+
+
+
+
+        function SubmitHander() {
+
+
+            errorName.style.display ="none";
+            errorAge.style.display ="none";
+            errorDob.style.display="none";
+            errorradio.style.display="none";
+
+            let error_check =false
+
+
+            var PName = document.getElementById("name").value
+            var PAge = document.getElementById("age").value
+            var PDob = document.getElementById("dob").value
+            console.log(PName, PAge, PDob);
+
+
+        
+
+            if (PName == "") {
+                errorName.style.display = "block";
+                error_check=true
+            }
+
+            if (PAge == "") {
+                errorAge.style.display = "block"
+                error_check=true
+            }
+
+            if(PDob==""){
+                errorDob.style.display ="block";
+                error_check=true
+            }
+
+            if(!Femaleselect.checked && !Maleselect.checked){
+                errorradio.style.display="block";
+                error_check=true;
+            }
+
+            let checkarry = []
+
+            let g = '';
+
+
+            if (Femaleselect.checked) {
+                g = "Female";
+
+            }
+
+            if (Maleselect.checked) {
+                g = "Male";
+
+            }
+
+            //row_2_data_5.innerHTML = g;
+
+
+            if (footballselect.checked) {
+
+                checkarry.push(footballselect.value)
+            }
+
+
+            if (Cricketselect.checked) {
+
+                checkarry.push(Cricketselect.value)
+            }
+
+
+            if (Check.checked) {
+
+                checkarry.push(Check.value)
+            }
+
+            if( !footballselect.checked && !Cricketselect.checked && !Check.checked){
+                errorcheck.style.display="block";
+                error_check=true;
+            }
+
+
+            if(error_check == false){
+
+                let data = {
+                    ename: PName,
+                    eage: PAge,
+                    eDob: PDob,
+                    eGender: g,
+                    ehobby: checkarry,
+    
+    
+                }
+    
+    
+                if (is_edit != -1) {
+    
+                    arr_one[is_edit] = data;
+                    is_edit = -1;
+                } else {
+                    arr_one.push(data)
+                }
+    
+                createrow()
+                
+                document.getElementById("name").value = ""
+                document.getElementById("age").value = ""
+                document.getElementById("dob").value = ""
+                document.getElementById("gmale").checked = false;
+                document.getElementById("gfemale").checked = false;
+                document.getElementById("fb").checked = false
+                document.getElementById("ct").checked = false
+                document.getElementById("chess").checked = false
+        
+
+            }
+           
+            
+
+
+            //count += 1;
+
+
+
+        }
+
+
+
+
+        s.addEventListener("click", SubmitHander)
+
+
+
+        function nameOnchange(){
+            if(this.value ==""){
+                errorName.style.display = "block";
+                
+            }else{
+                errorName.style.display = "none";
+
+            }
+        
+
+        }
+
+        FN.addEventListener("keyup", nameOnchange)
+        
+
+
+        
+
+        function ageOnchange(){
+            if(this.value ==""){
+                errorAge.style.display = "block";
+            
+                
+            }else{
+                errorAge.style.display = "none";
+
+            }
+        
+
+        }
+
+        Ag.addEventListener("keyup", ageOnchange)
+        
+
+
+        
+
+        function dobOnchange(){
+            if(this.value ==""){
+                errorDob.style.display = "block";
+                
+            }else{
+                errorDob.style.display = "none";                                                                        D   
+
+            }
+        
+
+        }
+
+        DOB.addEventListener("keyup", dobOnchange)
+
+
+
+        Femaleselect.onchange =()=>{
+            event.target.checked ? errorradio.style.display ="none" : errorradio.style.display ="" 
+        }
+
+        
+        Maleselect.onchange =()=>{
+            event.target.checked ? errorradio.style.display ="none" : errorradio.style.display ="" 
+        }
+
+        
+        function checkOnchange(){
+            if( footballselect.checked ||Cricketselect.checked || Check.checked ){
+                errorcheck.style.display = "none";
+                
+                
+                
+            }else{
+                errorcheck.style.display = "block";
+
+            }
+        
+
+        }
+
+        footballselect.addEventListener("change", checkOnchange)
+        Cricketselect.addEventListener("change", checkOnchange)
+        
+        Check.addEventListener("change", checkOnchange)
+        
+
+
+        var sdiv = document.createElement("div")
+        div.appendChild(sdiv)
+
+        let table = document.createElement('table');
+        table.setAttribute("id", "mytable")
+        sdiv.appendChild(table)
+        let thead = document.createElement('thead');
+        let tbody = document.createElement('tbody');
+
+        table.appendChild(thead);
+        table.appendChild(tbody);
+
+
+        let row_1 = document.createElement('tr');
+        let heading_1 = document.createElement('th');
+        heading_1.innerHTML = "Sr. No.";
+        let heading_2 = document.createElement('th');
+        heading_2.innerHTML = "Name";
+        let heading_3 = document.createElement('th');
+        heading_3.innerHTML = "Age";
+
+        let heading_4 = document.createElement('th');
+        heading_4.innerHTML = "Dob";
+
+
+
+        let heading_5 = document.createElement('th');
+        heading_5.innerHTML = "Gender";
+
+
+        let heading_6 = document.createElement('th');
+        heading_6.innerHTML = "Hobby";
+
+
+        let heading_7 = document.createElement('th');
+        heading_7.innerHTML = "Edit";
+
+
+        let heading_8 = document.createElement('th');
+        heading_8.innerHTML = "Delete";
+
+
+        row_1.appendChild(heading_1);
+        row_1.appendChild(heading_2);
+        row_1.appendChild(heading_3);
+
+        row_1.appendChild(heading_4);
+        row_1.appendChild(heading_5)
+        row_1.appendChild(heading_6)
+        row_1.appendChild(heading_7)
+        row_1.appendChild(heading_8)
+        thead.appendChild(row_1);
+    </script>
+
+</body>
+
+</html>
